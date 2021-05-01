@@ -1,0 +1,8 @@
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+.hover-shade:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
