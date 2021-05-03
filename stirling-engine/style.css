@@ -1,3 +1,8 @@
+
+html {
+    scroll-padding-top: 15vh;
+}
+
 body {
     font-family: 'Barlow', sans-serif;
 }
@@ -31,4 +36,8 @@ img.fill-x {
 img.fill-y {
     width: auto;
     height: 100%;
+}
+
+.vh-35 {
+    height: 35vh;
 }
