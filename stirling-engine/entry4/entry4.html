@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
+
+    <link href="../style.css", rel="stylesheet">
+
+    <title>Entry 4</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg p-4">
+        <a class="navbar-brand" href="../index.html">The Stirling Engine Project</a>
+    </nav>
+    <div class="p-5"></div>
+    <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center pb-4">
+                    <h1>Stirling It Up</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-md-4 pt-4">
+                        <img src="entry4ImgTitle.gif" class="fill-x">
+                    </div>
+                </div>
+                <div class="py-5">
+                    Stirling engines are definitely a fairly niche topic. Since my initial knowledge about them was fairly limited, I had to do some research to figure out how exactly they work, and to learn about various ways of implementing them.<br>
+                    <br>
+                    First of all, it is important to note where a Stirling engine draws its power from. Stirling engines are always situated between a heat source, and a heat sink. Heat naturally dissipates from the heat source to the heat sink, and a Stirling engine “steals” energy as it flows through the system, converting it into useful kinetic energy. In a fully closed system, the heat source and heat sink will eventually reach equilibrium, and the Stirling engine will then be unable to do any more work.<br>
+                    <br>
+                    Stirling engines contain an internal fluid that transfers energy through the system. The fluid can expand, or contract, due to temperature changes — and as it does so, it drives one or more pistons within the engine, resulting in physical motion. If the system was this simple, however, it would soon reach an equilibrium and stop moving, as the piston would be pushed towards the heat sink by the expanding fluid on the side closest to the heat source, and energy would flow right through the piston to the heat sink. This is illustrated in the diagram below.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry4Img1.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    To fix this issue, Stirling engines contain a mechanism that displaces the fluid and “resets” the piston so that the fluid can expand and push it out once again. “Resetting” the piston in this way does require some energy, but if the engine is designed properly, there should still be a net positive amount of power produced by the engine. This is a very general explanation of how Stirling engines work, which should hopefully make more sense after going through the details.<br>
+                    <br>
+                    There are two main types of Stirling engines — Alpha and Beta (there is also a Gamma type, which is a variation on Beta). Alpha type engines contain two cylinders, each with a piston — one cylinder is a heat source, and one is a heat sink. The fluid moves back and forth between the cylinders, and the pistons themselves act as the fluid displacers. Beta type engines contain one cylinder — with a heat source on one end and a heat sink on the other. The cylinder contains a piston, and a dedicated displacer which moves the fluid between the ends of the cylinder.<br>
+                    <br>
+                    Beta type engines require a complex mechanical seal that allows a rod to be actuated through a piston head — this doesn’t seem feasible for me to construct. I’ve decided to develop an Alpha type engine instead, since the Alpha type seems mechanically simpler.<br>
+                    <br>
+                    <b><u>Alpha Engine Motion Explanation</u></b><br>
+                    <br>
+                    In the following diagrams, the red cylinder is the heat source, and the blue cylinder is the heat sink. Red fluid is heated and wants to expand; blue fluid is cooled and wants to contract. There is a conduit between the cylinders for the fluid to pass through. Each piston head is connected to a spinning flywheel, which stores momentum and keeps the engine moving, even when it is in a configuration that does not produce power.<br>
+                    <br>
+                    Alpha Stirling engines operate in a continuous cycle through the following configurations, in the order illustrated.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry4Img2.png" class="fill-x">
+                            <div class="text-center fst-italic fs-6 pt-2">
+                                Image from wikipedia.com
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <b>Configuration 1:</b><br>
+                    In this configuration, the heat source piston has just extended to its maximum volume, while the heat sink piston is extending. The extension of the heat source cylinder has been powered by the expansion of fluid within that cylinder, due to an external heat source. The extension of the heat sink piston is being powered by momentum in the flywheel from the previous configuration (configuration 4), and by the extension of the heat source piston.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry4Img3.png" class="fill-x">
+                            <div class="text-center fst-italic fs-6 pt-2">
+                                Image from wikipedia.com
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <b>Configuration 2:</b><br>
+                    In this configuration, the system is powered by momentum from the flywheel. The heat source piston is forced to begin retracting, and the heat sink piston is forced to extend to its maximum volume. This increase in volume causes the temperature of the fluid to drop, all while it is forced into the heat sink cylinder.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry4Img4.png" class="fill-x">
+                            <div class="text-center fst-italic fs-6 pt-2">
+                                Image from wikipedia.com
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <b>Configuration 3:</b><br>
+                    In this configuration, the heat sink cylinder has started to retract, and the heat source cylinder has just retracted to its minimum volume. The retraction of the heat sink cylinder is being powered by the contraction of the fluid, due to the external environment absorbing energy from it. The retraction of the heat source piston is being powered by momentum in the flywheel from the previous configuration, and by the retraction of the heat sink piston.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry4Img5.png" class="fill-x">
+                            <div class="text-center fst-italic fs-6 pt-2">
+                                Image from wikipedia.com
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <b>Configuration 4:</b><br>
+                    In this configuration, the heat source piston is extending, and the heat sink piston has retracted to its minimum volume. The retraction of the heat sink piston has been powered by the contraction of fluid within it, as the external environment has absorbed energy from the fluid. Meanwhile, the extension of the heat sink piston is being powered by the expansion of the fluid within it, due to an external heat source. The fluid is compressed, and heats up, driving the engine into the next configuration.<br>
+                    <br>
+                    The engine continues to power itself in this fashion. Useful energy can be extracted from the flywheel, as it spins, to do work. In practice, I doubt my engine will be able to do very much useful work after powering itself, though.<br>
+                    <br>
+                    <b><u>Regenerators</u></b><br>
+                    <br>
+                    When the internal fluid is cooled, some energy will leave the system without ever doing any useful work, as it passes through the conduit. To mitigate this, many Stirling engines contain a regenerator (special material) within the conduit that absorbs heat energy, so that when the fluid is cooled, the fluid loses energy to the regenerator rather than to the external environment. When the fluid passes back through the regenerator at a later time, it can pick up some of this heat energy and do useful work in the heat source piston. I don’t think I will include a dedicated regenerator in my initial design due to the added complexity, but this may change in the future.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry4Img6.jpg" class="fill-x">
+                            <div class="text-center fst-italic fs-6 pt-2">
+                                Image from stirlingengine.com
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 bg-dark text-light"></div>
+  </body>
+</html>
