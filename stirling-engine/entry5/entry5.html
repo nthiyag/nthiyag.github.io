@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
+
+    <link href="../style.css", rel="stylesheet">
+
+    <title>Entry 5</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg p-4">
+        <a class="navbar-brand" href="../index.html">The Stirling Engine Project</a>
+    </nav>
+    <div class="p-5"></div>
+    <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center pb-4">
+                    <h1>General Design</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 pt-4">
+                        <img src="entry5ImgTitle.png" class="fill-x">
+                    </div>
+                </div>
+                <div class="py-5">
+                    As mentioned in my previous post, I will be designing an Alpha type Stirling engine. For more details about how this particular engine type works, check out that post. I’ve been doing some thinking about what this engine will actually look like in reality, and I’ve drawn some inspiration from designs I’ve found online. I’ll showcase those as well in this post, but I think my design is still fairly unique, given that I’ve had to consider my specific resource and manufacturing constraints.<br>
+                    <br>
+                    My Stirling engine will simply be using air as its working fluid. This is actually pretty common in many Stirling engines — the main draw being that air is free, replenishable, safe, and easy to handle. In terms of manufacturing and assembly of the engine and its parts, I plan on using basic tools, such as drills and screwdrivers, in addition to a portable circular saw. I also have a mini hobbyist CNC router that I sometimes use to make small parts for robotics competitions — this will be extremely useful, as being able to manufacture custom parts with precision makes this project a whole lot more feasible (a CNC router can cut out flat parts by moving a drill bit around and above a 2D plane — CNC tools in general are controlled by a computer for a high degree of accuracy/precision).<br>                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry5Img1.jpg" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    My tool constraints will also dictate my material constraints. As mentioned, I can only work accurately on 2D parts, and my router is not powerful enough to cut metals (actually, it might just barely be able to do aluminum, but I’d have to learn how to work with it, and I don’t want to risk it). I’ve decided to make my custom parts out of Lexan (polycarbonate) — a plastic that is a close relative to Plexiglass. Lexan is a very strong and flexible plastic, so it won’t shatter under stress like Plexiglass. Also, importantly, my router can cut Lexan, and I’ve worked with it before, so hopefully things will go smoothly. I will have to design my engine to only make use of custom parts that are flat, but this should be doable — I already have some ideas.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry5Img2.jpg" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    As for my other parts, I will purchase them from McMaster-Carr, an online industrial hardware supplier that I’ve had good experiences dealing with in the past through our school’s robotics team. I’ve already found some pipe that I can use as my piston chamber walls, and some piston seals I can use to create a fully sealed system — this is necessary to make sure the working fluid stays in the engine. Once I have my parts selected, I’ll talk about them in a future post.<br>
+                    <br>
+                    My overall engine design will actually look fairly similar to the theoretical Alpha engine layout below:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry5Img3.gif" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    To get a better, more practical idea of how I could construct an engine, I did a bit of research — these two are probably the most relevant examples of homemade Alpha type Stirling engines I could find:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ogeYcS3o7cU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/uwVDpKtBNsk?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <br>
+                    I don’t have access to the more advanced manufacturing techniques used in both of those videos, such as welding, so my design will look quite different. I plan on switching things up a bit and mounting my flywheel parallel to the ground, with both pistons facing sideways (so piston rod direction of motion = parallel to the ground). This will make it easier to support my cylinders and flywheel. I’ll delve deeper into design specifics in later posts. The next step for me in this project is to make some simplified mathematical models of the forces/pressure/energy in the engine so that I can make more informed, specific design choices.<br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 bg-dark text-light"></div>
+  </body>
+</html>
