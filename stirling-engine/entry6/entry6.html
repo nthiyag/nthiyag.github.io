@@ -8,6 +8,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
 
@@ -28,12 +31,141 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 offset-md-2 pt-4">
-                        <img src="entry5ImgTitle.png" class="fill-x">
+                        <img src="entry6ImgTitle.png" class="fill-x">
                     </div>
                 </div>
                 <div class="py-5">
-                    Page not updated yet because it's late and I should sleep (I'll update it in the morning), but until then the post can be found at the bottom of this Google Doc (open with PDSB account):<br>
-                    <a href=https://docs.google.com/document/d/1xVURq8BzPXHg9XGr69rx1iLfoLi2fsRwdOabu7NEW00/edit?usp=sharing>https://docs.google.com/document/d/1xVURq8BzPXHg9XGr69rx1iLfoLi2fsRwdOabu7NEW00/edit?usp=sharing</a>
+                    The next three posts, including this one, will be quite mathematical in nature — they will analyze the theoretical behaviour of various systems within the engine, with each post building on top of the others. In the end, I will have a theoretical model of a Stirling engine — taking into account the force, pressure, and energy within the system. I will be able to use this information to influence my design choices. This particular post will focus on how force is transmitted through the piston and rod, and how it acts on the flywheel. When the piston extends or retracts, not all of the force exerted by it is applied in the direction of the rod’s motion — therefore, only the component acting in this direction can do useful work. Similarly, when the rod moves, not all of the force exerted by it is applied to the flywheel. The proportion of the force exerted by the piston head that is felt by the flywheel changes as the flywheel rotates and the piston moves. In order to create a true mathematical model of a Stirling engine, it is first necessary to determine the relationship between flywheel angle and this force transmission.<br>
+                    <br>
+                    Both heat sink and heat source pistons will be mechanically identical, and so this derivation will only be shown for one piston — the other one is extremely similar. In a birds eye view, a piston and a flywheel are labelled:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry6Img1.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    The coordinate system given in the above diagram is used in the following derivations.<br>
+                    <br>
+                    Let \(θ\) represent the angle the flywheel has turned clockwise (as viewed in the diagram), with \(θ = 0\) being the position where the piston rod is perpendicular to the piston head<br>
+                    <br>
+                    Let \(ℓ\) represent the length of the piston rod<br>
+                    Let \(f\) represent the radius from the center of the flywheel to the point of connection of the piston rod<br>
+                    <br>
+                    *note: I am purposely avoiding the letter r to avoid confusion with "radius"<br>
+                    <br>
+                    Let \(F_p\) represent the force exerted on the piston head by the gas within the cylinder<br>
+                    Let \(F_ℓ\) represent the force exerted on the piston rod along its direction of motion, by the piston head<br>
+                    Let \(F_f\) represent the force exerted perpendicular to the flywheel’s radius by the piston rod (because this is the component that will cause the flywheel to turn)<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry6Img2.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    \(f · sin θ\) and \(ℓ\) are two sides of a right triangle. The ratio \(sin α\) in this triangle is given by \(f · sin θ \over ℓ\). Therefore: $$α = sin^{-1} {f · sin θ \over ℓ}$$
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2 offset-md-5 py-2">
+                            <img src="entry6Img3.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    If \(F_p\) is the force applied to the piston head, the component facing in the direction of \(ℓ\) will be \(F_ℓ\). Therefore: $$F_ℓ = F_p · cos α$$
+                    <br>
+                    Looking back at the diagram from before:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry6Img4.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    We will now try to find the length \(d\) — the distance from the piston head to the center of the flywheel. This length is constantly changing as the flywheel rotates and the piston head moves.<br>
+                    <br>
+                    \(d +  f · cos θ\) is one side of a right triangle, along with \(ℓ\) and \(f · sin θ\). This means that \(d +  f · cos θ\) is \(\sqrt{ℓ^2 - (f · sin θ)^2}\). So: $$d = \sqrt{ℓ^2 - (f · sin θ)^2} - f · cos θ$$
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry6Img5.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    Taking a look at the diagram above, we can see that \(d\), \(ℓ\), and \(f\) form a triangle. This triangle contains the angle \(β\). Through the cosine law, we know that \(d^2 = ℓ^2 + f^2 - 2dℓ · cos β\). Rearranging this, we find that \(cos β = {ℓ^2 + f^2 - d^2 \over 2ℓf}\), and so: $$β = cos^{-1} {ℓ^2 + f^2 - d^2 \over 2ℓf}$$
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 py-2">
+                            <img src="entry6Img6.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    If the piston rod is pushed with a force of \(F_ℓ\), the component that will contribute to the flywheel’s motion is \(F_f\). Therefore, it seems that \(F_f = F_ℓ · sin β\). However, it is important to note that when \(θ\) is between 0 and π, a positive force applied by the piston head will contribute to the flywheel’s motion in the negative direction. 
+                    Likewise, when \(θ\) is between π and 2π, a positive force applied by the piston head will contribute to the flywheel’s motion in the positive direction. To represent this relationship, we will need to multiply our expression for force by -1 over the interval \(0 ≤ θ < π\), and by 1 over the interval \(π ≤ θ < 2π\). Multiplying by \(-{|sin θ| \over sin θ}\) will achieve this effect. Therefore: $$F_f = -F_ℓ · sin β · {|sin θ| \over sin θ}$$
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry6Img1.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    To summarize:<br>
+                    $$d = \sqrt{ℓ^2 - (f · sin θ)^2} - f · cos θ$$
+                    $$α = sin^{-1} {f · sin θ \over ℓ}$$
+                    $$β = cos^{-1} {ℓ^2 + f^2 - d^2 \over 2ℓf}$$
+
+                    $$F_ℓ = F_p · cos α$$
+                    $$F_f = -F_ℓ · sin β · {|sin θ| \over sin θ}$$
+
+                    Combining equations:
+                    $$F_f = -F_p · cos α · sin β · {|sin θ| \over sin θ}$$
+                    <br>
+                    We do not yet have a value for \(F_p\) or \(F_f\), so this equation cannot be solved. However, we can solve for the ratio \(Fp \over Ff\) to find the proportion of the force applied by the piston that is felt by the flywheel. Since the only variable in these equations is \(θ\) (the rest are constants), we can plot this proportion as a function of \(θ\). This gives us a relationship between flywheel angle, and the proportion of useful force felt by the flywheel.<br>
+                    <br>
+                    Doing so, we find the following graph:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry6Img7.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    This looks pretty cool! It also appears to model force transmission correctly — we can do a quick mental check to see that at \(θ = 0\) and \(θ = π/2\), the piston rod cannot apply any useful force to the flywheel (this makes sense because at these points, the rod is collinear with the flywheel’s radius — and so it cannot apply any force perpendicular to the circle’s radius).<br>
+                    <br>
+                    Using a similar process, we can find the equations that describe force transmission for the second piston. The angle \(θ\) is shifted by \(π \over 2\) from the perspective of this piston. I won’t go through every step of the derivation here, since the process is so similar to the derivation for the first piston. Rather, this proof is left as an exercise to the reader ;)<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry6Img8.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    For the second piston, redefining all variables to refer to the above diagram:<br>
+                    $$d = \sqrt{ℓ^2 - (f · cos θ)^2} + f · sin θ$$
+                    $$α = sin^{-1} {f · cos θ \over ℓ}$$
+                    $$β = cos^{-1} {ℓ^2 + f^2 - d^2 \over 2ℓf}$$
+
+                    $$F_ℓ = F_p · cos α$$
+                    $$F_f = -F_ℓ · sin β · {|cos θ| \over cos θ}$$
+
+                    Combining equations:
+                    $$F_f = -F_p · cos α · sin β · {|cos θ| \over cos θ}$$
+                    <br>
+                    Don’t worry, I’ll redefine unique variable names in future posts to refer to each individual piston so the variable names aren’t shared like this — since we’re only focusing on one piston at a time in this post, I didn’t feel it was necessary to be so specific.<br>
+                    <br>
+                    Plotting both force transmission ratios with respect to flywheel angle:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry6Img9.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    Once again, not only does it look pretty neat, it also checks out theoretically!<br>
+                    <br>
+                    This Desmos graph used to plot these values can be found here:<br>
+                    <u><a href="https://www.desmos.com/calculator/dzb0lnbckm">Stirling Engine Parameters - Desmos</a></u><br>
+                    More equations describing other systems in the engine will be added to this graph in future posts. In the next post, we will look at pressure in the engine as a function of \(θ\).
                 </div>
             </div>
         </div>
