@@ -49,14 +49,14 @@
                     <br>
                     Let \(\theta\) represent the angle the flywheel has turned clockwise (as viewed in the diagram), with \(\theta = 0\) being the position where the piston rod is perpendicular to the piston head<br>
                     <br>
-                    Let \(ℓ\) represent the length of the piston rod<br>
-                    Let \(f\) represent the radius from the center of the flywheel to the point of connection of the piston rod<br>
+                    Let \(ℓ\) represent the constant length of the piston rod (m)<br>
+                    Let \(f\) represent the constant radius from the center of the flywheel to the point of connection of the piston rod (m)<br>
                     <br>
                     *note: I am purposely avoiding the letter r to avoid confusion with "radius"<br>
                     <br>
-                    Let \(F_p\) represent the force exerted on the piston head by the gas within the cylinder<br>
-                    Let \(F_ℓ\) represent the force exerted on the piston rod along its direction of motion, by the piston head<br>
-                    Let \(F_f\) represent the force exerted perpendicular to the flywheel’s radius by the piston rod (because this is the component that will cause the flywheel to turn)<br>
+                    Let \(F_p\) represent the force exerted on the piston head by the gas within the cylinder (N)<br>
+                    Let \(F_ℓ\) represent the force exerted on the piston rod along its direction of motion, by the piston head (N)<br>
+                    Let \(F_f\) represent the force exerted perpendicular to the flywheel’s radius by the piston rod (because this is the component that will cause the flywheel to turn) (N)<br>
                     <br>
                     <div class="row">
                         <div class="col-md-6 offset-md-3 py-2">
@@ -64,7 +64,8 @@
                         </div>
                     </div>
                     <br>
-                    \(f · sin \theta\) and \(ℓ\) are two sides of a right triangle. The ratio \(sin \alpha\) in this triangle is given by \(f · sin \theta \over ℓ\). Therefore: $$\alpha = sin^{-1} {f · sin \theta \over ℓ}$$
+                    \(f · sin \theta\) and \(ℓ\) are two sides of a right triangle. The ratio \(sin \alpha\) in this triangle is given by \(f · sin \theta \over ℓ\). Therefore:
+                    $$\alpha = sin^{-1} {f · sin \theta \over ℓ}$$
                     <br>
                     <div class="row">
                         <div class="col-md-2 offset-md-5 py-2">
@@ -72,7 +73,8 @@
                         </div>
                     </div>
                     <br>
-                    If \(F_p\) is the force applied to the piston head, the component facing in the direction of \(ℓ\) will be \(F_ℓ\). Therefore: $$F_ℓ = F_p · cos \alpha$$
+                    If \(F_p\) is the force applied to the piston head, the component facing in the direction of \(ℓ\) will be \(F_ℓ\). Therefore:
+                    $$F_ℓ = F_p · cos \alpha$$
                     <br>
                     Looking back at the diagram from before:<br>
                     <br>
@@ -84,7 +86,8 @@
                     <br>
                     We will now try to find the length \(d\) — the distance from the piston head to the center of the flywheel. This length is constantly changing as the flywheel rotates and the piston head moves.<br>
                     <br>
-                    \(d +  f · cos \theta\) is one side of a right triangle, along with \(ℓ\) and \(f · sin \theta\). This means that \(d +  f · cos \theta\) is \(\sqrt{ℓ^2 - (f · sin \theta)^2}\). So: $$d = \sqrt{ℓ^2 - (f · sin \theta)^2} - f · cos \theta$$
+                    \(d +  f · cos \theta\) is one side of a right triangle, along with \(ℓ\) and \(f · sin \theta\). This means that \(d +  f · cos \theta\) is \(\sqrt{ℓ^2 - (f · sin \theta)^2}\). So:
+                    $$d = \sqrt{ℓ^2 - (f · sin \theta)^2} - f · cos \theta$$
                     <br>
                     <div class="row">
                         <div class="col-md-4 offset-md-4 py-2">
@@ -92,7 +95,8 @@
                         </div>
                     </div>
                     <br>
-                    Taking a look at the diagram above, we can see that \(d\), \(ℓ\), and \(f\) form a triangle. This triangle contains the angle \(\beta\). Through the cosine law, we know that \(d^2 = ℓ^2 + f^2 - 2dℓ · cos \beta\). Rearranging this, we find that \(cos \beta = {ℓ^2 + f^2 - d^2 \over 2ℓf}\), and so: $$\beta = cos^{-1} {ℓ^2 + f^2 - d^2 \over 2ℓf}$$
+                    Taking a look at the diagram above, we can see that \(d\), \(ℓ\), and \(f\) form a triangle. This triangle contains the angle \(\beta\). Through the cosine law, we know that \(d^2 = ℓ^2 + f^2 - 2dℓ · cos \beta\). Rearranging this, we find that \(cos \beta = {ℓ^2 + f^2 - d^2 \over 2ℓf}\), and so:
+                    $$\beta = cos^{-1} {ℓ^2 + f^2 - d^2 \over 2ℓf}$$
                     <br>
                     <div class="row">
                         <div class="col-md-4 offset-md-4 py-2">
@@ -101,7 +105,8 @@
                     </div>
                     <br>
                     If the piston rod is pushed with a force of \(F_ℓ\), the component that will contribute to the flywheel’s motion is \(F_f\). Therefore, it seems that \(F_f = F_ℓ · sin \beta\). However, it is important to note that when \(\theta\) is between 0 and π, a positive force applied by the piston head will contribute to the flywheel’s motion in the negative direction. 
-                    Likewise, when \(\theta\) is between π and 2π, a positive force applied by the piston head will contribute to the flywheel’s motion in the positive direction. To represent this relationship, we will need to multiply our expression for force by -1 over the interval \(0 ≤ \theta < \pi\), and by 1 over the interval \(\pi ≤ \theta < 2\pi\). Multiplying by \(-{|sin \theta| \over sin \theta}\) will achieve this effect. Therefore: $$F_f = -F_ℓ · sin \beta · {|sin \theta| \over sin \theta}$$
+                    Likewise, when \(\theta\) is between π and 2π, a positive force applied by the piston head will contribute to the flywheel’s motion in the positive direction. To represent this relationship, we will need to multiply our expression for force by -1 over the interval \(0 ≤ \theta < \pi\), and by 1 over the interval \(\pi ≤ \theta < 2\pi\). Multiplying by \(-{|sin \theta| \over sin \theta}\) will achieve this effect. Therefore:
+                    $$F_f = -F_ℓ · sin \beta · {|sin \theta| \over sin \theta}$$
                     <br>
                     <div class="row">
                         <div class="col-md-6 offset-md-3 py-2">
@@ -130,7 +135,7 @@
                         </div>
                     </div>
                     <br>
-                    This looks pretty cool! It also appears to model force transmission correctly — we can do a quick mental check to see that at \(\theta = 0\) and \(\theta = {\pi \over 2}\), the piston rod cannot apply any useful force to the flywheel (this makes sense because at these points, the rod is collinear with the flywheel’s radius — and so it cannot apply any force perpendicular to the circle’s radius).<br>
+                    This looks pretty cool! It also appears to model force transmission correctly — we can do a quick mental check to see that at \(\theta = 0\) and \(\theta = {\pi \over 2}\), the piston rod cannot apply any useful force to the flywheel (this makes sense because at these points, the rod is collinear with the flywheel’s radius — and so it cannot apply any force perpendicular to the circle’s radius). Force transmission should also be negative from \(0 ≤ \theta < \pi\), and positive from \(\pi ≤ \theta < 2\pi\) — again, this checks out.<br>
                     <br>
                     Using a similar process, we can find the equations that describe force transmission for the second piston. The angle \(\theta\) is shifted by \(\pi \over 2\) from the perspective of this piston. I won’t go through every step of the derivation here, since the process is so similar to the derivation for the first piston. Rather, this proof is left as an exercise to the reader ;)<br>
                     <br>
@@ -163,8 +168,9 @@
                     <br>
                     Once again, not only does it look pretty neat, it also checks out theoretically!<br>
                     <br>
-                    This Desmos graph used to plot these values can be found here:<br>
-                    <a href="https://www.desmos.com/calculator/x5hilqnphk" class="link-primary">Stirling Engine Parameters - Desmos</a><br>
+                    This Desmos graph used to plot these values can be found here:
+                    <a href="https://www.desmos.com/calculator/x5hilqnphk" class="link-primary">https://www.desmos.com/calculator/x5hilqnphk</a><br>
+                    <br>
                     More equations describing other systems in the engine will be added to this graph in future posts. In the next post, we will look at pressure in the engine as a function of \(\theta\).
                 </div>
             </div>
