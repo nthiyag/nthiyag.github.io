@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
+
+    <link href="../style.css", rel="stylesheet">
+
+    <title>Entry 9</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg p-4">
+        <a class="navbar-brand" href="../index.html">The Stirling Engine Project</a>
+    </nav>
+    <div class="p-5"></div>
+    <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center pb-4">
+                    <h1>Engine Design</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 pt-4">
+                        <img src="entry9ImgTitle.png" class="fill-x">
+                    </div>
+                </div>
+                <div class="py-5">
+                    Now that we have a working <a href="https://www.desmos.com/calculator/o44oq3fzup" class="link-primary">mathematical model</a> of the engine, we can take a closer look at how certain design choices impact the performance of the engine.<br>
+                    <br>
+                    First, a recap of the physical parameters we have control over.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry9Img1.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    \(ℓ\) represents the length of the piston rod (m)<br>
+                    \(f\) represents the radius of the flywheel (m)<br>
+                    \(h\) represents the length of the piston cylinders (m)<br>
+                    \(c\) represents the radius of the piston cylinders (m)<br>
+                    <br>
+                    \(T_c\) represents the internal temperature of the heat sink cylinder (K)<br>
+                    \(T_h\) represents the internal temperature of the heat source cylinder (K)<br>
+                    <br>
+                    I also made the assumption in a previous post that I can fit 1.75 piston cylinders worth of air into the engine. The more air I can fit into the cylinders, the more work the engine can do, according to the theoretical model. The maximum amount of air I can fit in is 2 cylinders worth, and I doubt I will be able to fit all of the air in perfectly, so 1.75 cylinders worth of air seems like a reasonable assumption that I’ll stick with.<br>
+                    <br>
+                    This leaves us with 6 parameters to play with. \(W\) (which represents total work done) is a function of \(\theta\), and contains these 6 parameters. See the last 3 posts for a thorough explanation of how these variables relate to \(W\). Our goal is to maximize W after a finite rotation of \(\theta\).<br>
+                    <br>
+                    \(T_c\) is the internal temperature of the heat sink cylinder. In this engine, the heat sink will be the surrounding atmosphere, so we can assume that the internal temperature of the cylinder will be room temperature. This is 293 K.<br>
+                    <br>
+                    \(T_h\) is the internal temperature of the heat source cylinder. In this engine, the heat source will be a small tea candle placed right below the cylinder. To find a reasonable temperature for the cylinder, I did a little research. I found a <a href="http://spiedigitallibrary.org/conference-proceedings-of-spie/11030/1103012/Measurement-of-temperature-and-temperature-fluctuations-in-wick-stabilized-micro/10.1117/12.2520885.short?webSyncID=d268bead-49a2-8531-ab0d-3a6b03c97c00&sessionGUID=9b6bcd74-6b80-d8e8-abee-aed6ae05c117&SSO=1&tab=ArticleLink" class="link-primary">paper</a> that outlines the relationship between a candle’s temperature and the distance from the flame. I should be able to get the cylinder to a temperature of 370 K (97<sup>o</sup> C) if it is 5 mm from the center of the flame, assuming that the cylinder is a good enough conductor of heat that it can somewhat evenly heat its own interior. It might take a little while to heat the interior of the cylinder up to this temperature, though.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-1 py-2">
+                            <img src="entry9Img2.jpg" class="fill-x">
+                        </div>
+                        <div class="col-md-4 offset-md-2 py-2">
+                            <img src="entry9Img3.jpg" class="fill-x">
+                        </div>
+                    </div>
+                    There are 4 remaining geometric parameters that need to be tuned: \(ℓ\), \(f\), \(h\), and \(c\). There are a couple of relative constraints between them:
+                    $$ℓ > 2f$$
+                    $$h > 2f$$
+                    <br>
+                    This should be apparent when looking at the diagram of the piston and the flywheel.<br>
+                    <br>
+                    According to the theoretical model, the larger \(ℓ\), \(f\), and \(c\) are, the greater the power output of the engine. It is worth noting that after increasing \(ℓ\) enough, there are diminishing returns to the engine’s power output, so it becomes less important to maximize \(ℓ\) after a point. Meanwhile, the smaller \(h\) is, the greater the power output of the engine.<br>
+                    <br>
+                    Aside from the theory, though, there are limits to the size of the engine’s components, since larger components will be more difficult to work with, and more expensive. For this reason, I’ve decided to design the engine first without worrying about these constraints, then to tune them to maximize efficiency given the general design I’ve laid out. I’ve gone ahead and designed the entire engine using CAD software — I’m using Solidworks for this. I’m not covering this process in detail since it didn’t really involve very much physics.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry9Img4.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry9Img5.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry9Img6.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 py-2">
+                            <img src="entry9Img7.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    After numerous hours designing the engine so that it could actually be constructed in real life, I settled on my parameters, guided by my theoretical model. These have been chosen in Imperial units since most industrial parts, even here in Canada, use Imperial standards. I’ll convert back to metric to plug these parameters into the theoretical model.<br>
+                    <br>
+                    I used the theoretical model to inform some of my parameter choices. I chose to make \(c=1''\), since that seemed like a reasonable size for a piston cylinder. This is a fairly standard cylinder size, which made it easier to find a seal for the piston head. I also chose to make \(f=1.5''\) initially, since I didn’t want the flywheel to take up too much space. I then made \(h=3''\), since \(h\) must be at least double \(f\), and because it must be minimized in order to maximize the engine’s power output. This is a good, standard cylinder length, but I realized that some space at the end of the cylinder would be taken up by other hardware, and so \(f\) had to be reduced down to \(f=1.2''\) so that the piston’s inward stroke wouldn’t extend into this space. I finally set \(ℓ=4.5''\), since that seemed like a reasonable length, and because any further increase in the piston rod length would make the engine sprawl out even more. It isn’t worth increasing \(ℓ\) by too much more, since increasing it has diminishing returns on the engine’s power output, according to the theoretical model.<br>
+                    <br>
+                    This is the work output of the engine with these parameters, as a function of θ:<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 py-2">
+                            <img src="entry9Img8.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    This Desmos graph can be found here:
+                    <a href="https://www.desmos.com/calculator/ytfh0riagi" class="list-primary">https://www.desmos.com/calculator/ytfh0riagi</a>
+                    <br>
+                    I also want to briefly touch on the mechanical design of this engine. All custom components are to be made out of Lexan (the type of plastic I mentioned in a previous post). I will cut these pieces myself on my mini CNC router. All of the other parts in this engine are from McMaster-Carr, the industrial hardware shop I mentioned in earlier posts, and from a local metal store called Metal Supermarkets.<br>
+                    <br>
+                    (I will be referring to standoffs when describing the engine — standoffs are thin, threaded metal rods, and can be identified in the images of the CAD model above)<br>
+                    <br>
+                    Three steel round tubes are from Metal Supermarkets — these make up the two piston cylinder walls, and the flywheel mass. The tube that is the flywheel mass has a wider diameter than the two piston cylinder tubes. Initially, I wanted to order aluminum equivalents of these tubes from McMaster-Carr, but there were exorbitantly high duties on them since they’re coming from the US, and so I settled for these steel tubes instead. Although steel may be harder to support due to its higher density and extra weight, a steel mass will give the flywheel a much higher moment of inertia, which could be a good thing. Each of these steel tubes are held in place between two sheets of Lexan, and they each have a few standoffs tangent to their surface that secure them in place to prevent movement, while also clamping their ends to the Lexan sheets.<br>
+                    <br>
+                    The flywheel contains two bearings, which allow it to rotate on a fixed standoff. This standoff passes through a supporting plate made of Lexan to help keep it stable.<br>
+                    <br>
+                    The piston heads contain an airtight sealing ring which is sandwiched between pieces of Lexan. Each piston head has an eye bolt running through it that connects the piston head to a piston rod. On the other end, each piston rod is attached to a single standoff on the flywheel located a distance \(f\) from the center of the flywheel.
+                    <br>
+                    A bulkhead pipe fitting passes through the Lexan backside of each piston — a plastic tube will be connected between these fittings, allowing air to pass between the cylinders freely and without any leaks.<br>
+                    <br>
+                    Through the power of delayed blog writing, I’ve already ordered these parts, and after some online purchasing shenanigans that are irrelevant to this post, I’m happy to say that I now have everything I need. All that’s left now is to actually construct the engine!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 bg-dark text-light"></div>
+  </body>
+</html>
