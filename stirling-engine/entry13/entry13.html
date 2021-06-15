@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
+
+    <link href="../style.css", rel="stylesheet">
+
+    <title>Entry 13</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg p-4">
+        <a class="navbar-brand" href="../index.html">The Stirling Engine Project</a>
+    </nav>
+    <div class="p-5"></div>
+    <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center pb-4">
+                    <h1>Worth a Shot</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 pt-4">
+                        <img src="entry13ImgTitle.jpg" class="fill-x">
+                    </div>
+                </div>
+                <div class="py-5">
+                    Some more good news and bad news. First of all, the good news. I’ve finished machining all of my parts, save for the base plate I will connect everything to. Most of my parts are somewhat assembled, and ready for integration. The flywheel is done, and my piston assemblies are partially assembled and ready to be put together at a few minute’s notice.<br>
+                    <br>
+                    Unfortunately, I still have a critical flaw. It’s a similar issue as in entry 11 — my piston heads won’t move through my piston cylinders. At this point, I’ve put a lot more time into fixing this, but still to no avail. I’ve gone through about 5-8 different revisions of piston heads (depending on how you count them), and I’ve switched from the old blue piston seals to new, flexible o-rings. The newer piston head iterations are better than the old ones, but they still suffer from some problems. Now, my piston heads do fit within the cylinders, however the o-ring tries to slide out of the piston head as it moves, and eventually it makes its way out. This breaks the seal. In the meantime, as the o-ring pushes its way out of the piston head groove, it adds a bunch of additional friction, making the piston virtually inoperable. This is apparently a phenomenon known as o-ring extrusion, which can be a serious problem for any piston. I don’t think I can achieve the manufacturing precision required to prevent this from happening, especially with such a thin o-ring.<br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 py-2">
+                            <img src="entry13Img1.png" class="fill-x">
+                        </div>
+                    </div>
+                    <br>
+                    I think a thicker o-ring might resist this sort of extrusion a bit better, but I still can’t guarantee that it’ll work well. I have no idea how long these piston seal problems could keep up, and I can totally see myself buying more and more o-rings as I attempt to fix the problems I find — honestly, this seems like a waste, so I want to avoid it if I can.<br>
+                    <br>
+                    I’m going to try a new approach instead. I found a video online of someone making highly effective DIY piston seals by molding hot glue (!!!), which seems pretty interesting, to say the least.<br>
+                    <br>
+                    <center>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/9iEaq-5lMrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </center>
+                    <br>
+                    <center>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FvikVvQwNyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </center>
+                    <br>
+                    I’m seriously considering this approach, even though it seems a bit sketchy — I’d make a solid hot glue core for my piston seal, and attach machined Lexan plates to it so that I can precisely connect it to my other hardware. There are a few advantages to a hot glue seal that I can think of — first of all, the seal is molded to fit the tube, which makes for a closer fit. Hot glue also appears to form a somewhat flexible plastic when it is used like this, which will help the seal conform to any irregularities. If the seal is too tight, it can always be filed down, unlike my previous seals. Furthermore, since a hot glue seal is one solid piece, there is no risk of it trying to escape the cylinder in the way that my o-ring seals did. Although a hot glue seal may suffer from other problems that I’m not yet aware of, I have a reasonable amount of hope that it won’t fail in the same way as my previous piston head attempts.<br>
+                    <br>
+                    I checked the melting point of hot glue — it’s 200 <sup>o</sup>C, or 473 K. This is far above the chamber temperature of my engine, so there is no risk of the seal melting during operation.<br>
+                    <br>
+                    I have no idea if this idea will work, but it’s worth a shot.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 bg-dark text-light"></div>
+  </body>
+</html>
