@@ -1,0 +1,38 @@
+
+html {
+    scroll-padding-top: 15vh;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+a {
+    font-family: 'Barlow', sans-serif;
+    text-decoration: none;
+}
+
+.hover-shade:hover {
+    opacity: 0.9;
+}
+
+.crop-wrapper {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+img.fill-x {
+    width: 100%;
+    height: auto;
+}
+
+img.fill-y {
+    width: auto;
+    height: 100%;
+}
+
+.vh-35 {
+    height: 35vh;
+}
