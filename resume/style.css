@@ -1,0 +1,48 @@
+
+html {
+    scroll-padding-top: 15vh;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+a {
+    font-family: 'Barlow', sans-serif;
+    text-decoration: none;
+}
+
+.hover-shade:hover {
+    opacity: 0.9;
+}
+
+h5.exp-title {
+    padding-top: 1%;
+    font-weight: bold;
+}
+
+h6.subtitle {
+    font-weight: 50;
+} 
+
+ul.exp-list {
+    list-style-type: '‣  ';
+    padding-left: 2%;
+}
+
+ul.exp-sublist {
+    list-style-type: '-  ';
+}
+
+.carousel-wrapper {
+    text-align: center;
+    padding: 2%;  
+}
+
+div.carousel-inner {
+    object-fit: cover;
+    object-position: center;
+    align-items: center;
+    height: 55vh;
+    overflow: hidden;
+}
