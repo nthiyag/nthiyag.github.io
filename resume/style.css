@@ -16,23 +16,20 @@ a {
     opacity: 0.9;
 }
 
-.crop-wrapper {
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
+h5.exp-title {
+    padding-top: 1%;
+    font-weight: bold;
 }
 
-img.fill-x {
-    width: 100%;
-    height: auto;
+h6.subtitle {
+    font-weight: 50;
+} 
+
+ul.exp-list {
+    list-style-type: '‣  ';
+    padding-left: 2%;
 }
 
-img.fill-y {
-    width: auto;
-    height: 100%;
-}
-
-.vh-35 {
-    height: 35vh;
+ul.exp-sublist {
+    list-style-type: '-  ';
 }
