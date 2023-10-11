@@ -33,3 +33,16 @@ ul.exp-list {
 ul.exp-sublist {
     list-style-type: '-  ';
 }
+
+.carousel-wrapper {
+    text-align: center;
+    padding: 2%;  
+}
+
+div.carousel-inner {
+    object-fit: cover;
+    object-position: center;
+    align-items: center;
+    height: 55vh;
+    overflow: hidden;
+}
